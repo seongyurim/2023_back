@@ -1,4 +1,4 @@
-public class integer {
+public class Integer {
     public static void main(String[] args) throws Exception {
 
         // 미션1 : 두 수를 더하는 코드를 구현해 봅시다.

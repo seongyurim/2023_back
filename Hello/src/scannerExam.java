@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class scannerExam {
+public class ScannerExam {
     public static void main(String[] args) {
         
         // 데이터를 사용자로부터 입력받는다.

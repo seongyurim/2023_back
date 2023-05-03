@@ -1,4 +1,4 @@
-public class typeCasting {
+public class TypeCasting {
     public static void main(String[] args) {
 
         // int v_int = 10;

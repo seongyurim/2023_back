@@ -1,4 +1,4 @@
-public class floating {
+public class Floating {
     public static void main(String[] args) {
         
         // 실수형은 float과 double 두 종류가 있습니다.

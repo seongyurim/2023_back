@@ -1,4 +1,4 @@
-public class character {
+public class Character {
     public static void main(String[] args) {
         
         // 문자 타입 - 2byte
