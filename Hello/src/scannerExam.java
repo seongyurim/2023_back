@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class ScannerExam {
     public static void main(String[] args) {
         
@@ -19,5 +20,6 @@ public class ScannerExam {
         // d. 100을 더한 후 출력해본다.
         val = val + 100;
         System.out.println(val);
+        System.out.println(inputStr);
     }
 }

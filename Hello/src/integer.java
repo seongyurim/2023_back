@@ -67,4 +67,8 @@ public class Integer {
         float k = 4.0f;
         System.out.println(r + k);
     }
+
+    public static int parseInt(String inputStr) {
+        return 0;
+    }
 }
