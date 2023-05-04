@@ -3,9 +3,8 @@ public class Circle {
 
 
     // 2. Attribute 도출
-    private double radius;
     private double pi;
-    private int circle = 0;
+    private double radius;
 
 
     // 4. Constructor
@@ -36,7 +35,7 @@ public class Circle {
         return radius;
     }
 
-    
+
     // 5. 메소드 추가
     // 원의 넓이 구하기
     public double getArea()
