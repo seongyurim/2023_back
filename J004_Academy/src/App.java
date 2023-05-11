@@ -10,12 +10,5 @@ public class App {
         int gr = stu2.getGrade();
         System.out.println(gr);
 
-        // // Student 객체에 값을 대입
-        // stu1.name = "kcs";
-        // stu1.school = "Hschool";
-        // stu1.grade = 2;
-
-
-
     }
 }
