@@ -1,17 +1,17 @@
 import java.util.Scanner;
-import java.util.stream.StreamSupport;
+// import java.util.stream.StreamSupport;
 
 public class Book22209Recoding {
   public static void main(String[] args) {
 
     Scanner scan = new Scanner(System.in);
     String userInput = null;
-    int menu = 0;
-
     int stuCount = 0;
     int[] scoreArray = null;
+    
     int bestScore = 0;
     int totalScore = 0;
+    int menu = 0;
 
     do {
       System.out.println("---------------------------------------------------------------");
@@ -34,7 +34,7 @@ public class Book22209Recoding {
           if (stuCount != 0) {
             scoreArray = new int[stuCount];
           }
-          System.out.println(scoreArray);
+
           // 2) 점수를 배열에 저장한다.
           for (int i = 0; i < stuCount; i++) {
             System.out.printf("score[%d]> ", i);
