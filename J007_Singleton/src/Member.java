@@ -15,7 +15,7 @@ public class Member {
 
 
 
-    // 기본생성자
+    // Q14-1. 기본생성자
     private Member(){
         name = "";
         id = "";
@@ -23,18 +23,12 @@ public class Member {
         age = 0;
     }
 
-    // 오버로딩 생성자1
-    public Member(String name, String id, String password, int age) {
-        this.name = name;
-        this.id = id;
-        this.password = password;
-        this.age = age;
-    }
-
-    // Q14. 오버로딩 생성자2
+    // Q14-2. 이름, ID를 받는 오버로딩 생성자
     public Member(String name, String id) {
         this.name = name;
         this.id = id;
+        password = ""; // 안해도 되지만
+        age = 0; // 명시적으로 넣어주자
     }
 
 

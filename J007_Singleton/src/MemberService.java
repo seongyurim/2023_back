@@ -3,11 +3,10 @@ public class MemberService {
     // Q15. 로그인과 로그아웃 메소드
 
     public boolean login(String id, String password) {
-        if ((id == "hong") && (password == "12345")) {
+        if ((id.equals("hong")) && (password.equals("12345"))) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public void logout(String id) {
