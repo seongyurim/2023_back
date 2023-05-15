@@ -8,7 +8,7 @@ public class BankApplication {
     // BankApplication : 관리자이자 컨테이너(관리대상을 포함), Account에게 종속적
 
     private int count;              // Account Object의 갯수
-    private int max;                // Account의 최대치
+    private int Max;                // Account의 최대치
     private Account[] account;      // 계좌정보들이 들어가는 배열
 
 
@@ -16,30 +16,31 @@ public class BankApplication {
     //기본 생성자
     public BankApplication() {
         count = 0;
-        max = 0;
+        Max = 0;
         account = null;
     }
     
     // 오버로딩 생성자: count만큼 생성
-    public BankApplication(int Max) {
+    public BankApplication(int max) {
         count = 0;
-        max = Max;
-        account = new Account[Max];
+        Max = max;
+        account = new Account[max];
+
+        //test-code ////////////////////////////////////////
+        account[0] = new Account("111-111", "abc", 10000);
+        account[1] = new Account("222-222", "def", 20000);
+        account[2] = new Account("333-333", "efg", 30000);
+        account[3] = new Account("444-444", "oqp", 40000);
+        count = 4;
+        ////////////////////////////////////////////////////
     }
 
 
-
-    // 계좌생성 /////////////////////////////////////////////////////////////////////////////////////////////
+    ////// 1. 계좌생성 /////////////////////////////////////////////////////////////////////
     // 1)
-    public boolean createAccount(String number, String name, int balance) {
-        Account ac = new Account(number, name, balance);
-        return createAccount(ac);
-    }
-
-    // 2)
     public boolean createAccount(Account account) {
         int pos = this.getEmptySlot();
-
+        
         // account가 없거나 최대치이면 false를 리턴
         if ((account == null) || (pos == -1)) {
             return false;
@@ -48,12 +49,16 @@ public class BankApplication {
         count++;
         return true;
     }
-
-
+    
+    // 2)
+    public boolean createAccount(String number, String name, int balance) {
+        Account ac = new Account(number, name, balance);
+        return createAccount(ac);
+    }
 
     // Account 배열에서 처음으로 만나는 null의 위치(i)를 리턴
     private int getEmptySlot() {
-        for (int i = 0; i < max; i++) {
+        for (int i = 0; i < Max; i++) {
             if (account[i] == null) {
                 return i;
             }
@@ -63,8 +68,7 @@ public class BankApplication {
 
 
 
-
-    // 계좌삭제 ///////////////////////////////////////////////////////////////////////////////////////////////
+    ////// 2. 계좌삭제 /////////////////////////////////////////////////////////////////////
     public boolean deleteAccount(String number) {
         int targetIndex = -1;
         targetIndex = findAccountIndex(number);
@@ -80,7 +84,7 @@ public class BankApplication {
 
 
 
-    // 계좌목록조회 ///////////////////////////////////////////////////////////////////////////////////////////
+    ////// 3. 계좌목록 /////////////////////////////////////////////////////////////////////
     public Account getAccount(int index) {
         if (account[index] == null) {
             return null;
@@ -91,9 +95,14 @@ public class BankApplication {
                            account[index].getBalance());
     }
 
+    // Max값 Getter
+    public int getMax() {
+        return this.Max;
+    }
 
 
-    // 예금처리 ////////////////////////////////////////////////////////////////////////////////////////////
+
+    ////// 4. 입금하기 /////////////////////////////////////////////////////////////////////
     public boolean deposit(String number, int balance) {
         int index;
         int curBalance;
@@ -108,9 +117,27 @@ public class BankApplication {
         return true;
     }
 
+    private int findAccountIndex(String number) {
+        for (int i = 0; i < Max; i++) 
+        {
+            if (account[i] != null) {
+
+                if (account[i].getNumber().equals(number)) 
+                {
+                    return i;
+                }
+            }            
+        }
+        return -1;
+    }
+
+    public int getCount() {
+        return count;
+    }
 
 
-    // 출금처리 /////////////////////////////////////////////////////////////////////////////////////////////
+
+    ////// 5. 출금하기 /////////////////////////////////////////////////////////////////////
     public boolean withdraw(String number, int balance) {
         int index;
         int curBalance;
@@ -131,22 +158,6 @@ public class BankApplication {
         return true;
     }
 
-    private int findAccountIndex(String number) {
-        for (int i = 0; i < max; i++) 
-        {
-            if (account[i] != null) {
 
-                if (account[i].getNumber().equals(number)) 
-                {
-                    return i;
-                }
-            }            
-        }
-        return -1;
-    }
-
-    public int getCount() {
-        return count;
-    }
 
 }

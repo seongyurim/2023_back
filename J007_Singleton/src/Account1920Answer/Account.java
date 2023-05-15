@@ -19,9 +19,9 @@ public class Account {
         this.balance = balance;
     }
 
-    public String getNumber()     { return number; };
-    public String getName()       { return name; };
-    public int getBalance()       { return balance; };
+    public String getNumber()     { return this.number; };
+    public String getName()       { return this.name; };
+    public int getBalance()       { return this.balance; };
 
     // public void setNumber(String number)   { this.number = number; }; // 있으면 안되니 삭제!
     public void setName(String name)       { this.name = name; };
