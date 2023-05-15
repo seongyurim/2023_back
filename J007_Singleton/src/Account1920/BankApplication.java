@@ -36,6 +36,17 @@ public class BankApplication {
                     System.out.printf("계좌번호: ");
                     String accountNum =  scan.nextLine();
 
+                    // 계좌번호가 중복되는 경우
+                    for (int i = 0; i < accountArray.length; i++) {
+                        if (accountArray[i] != null) {
+                            while (accountArray[i].getAccountNum().equals(accountNum)) {
+                                System.out.println("이미 존재하는 계좌번호입니다.");
+                                System.out.printf("계좌번호: ");
+                                accountNum =  scan.nextLine();
+                            }
+                        }
+                    }
+
                     System.out.printf("계좌주: ");
                     String accountOwner =  scan.nextLine();
 
@@ -61,7 +72,7 @@ public class BankApplication {
                     for (int i = 0; i < accountArray.length; i++) {
                         if (accountArray[i] != null) {
                             System.out.printf(accountArray[i].getAccountNum() + "\t" +
-                                              accountArray[i].getName() + "\t" +
+                                              accountArray[i].getOwner() + "\t" +
                                               accountArray[i].getBalance() + "\n");
                         }
                     }
@@ -108,7 +119,7 @@ public class BankApplication {
                 break;
 
                 default:
-                System.out.println("[ERROR] BankApplication Class");
+                // System.out.println("[ERROR] BankApplication Class");
                 break;
             }
     

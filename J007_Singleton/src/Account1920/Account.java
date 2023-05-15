@@ -27,7 +27,7 @@ public class Account {
 
     // Getter
     public String getAccountNum() { return accountNum; };
-    public String getName()       { return owner; };
+    public String getOwner()       { return owner; };
     public int getBalance()       { return balance; };
 
 
