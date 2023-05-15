@@ -78,7 +78,7 @@ public class App {
                     if (true == bankApp.deleteAccount(number)) {
                         System.out.println("결과: 계좌가 삭제되었습니다.");
                     } else {
-                        System.out.println("결과: 계좌가 정상적으로 삭제되지 않았습니다.");
+                        System.out.println("결과: 계좌가 삭제되지 않았습니다.");
                     }
 
                 break;
@@ -89,12 +89,14 @@ public class App {
                     System.out.println("| 3. 계좌목록 |");
                     System.out.println("---------------");
 
-                    int count = bankApp.getCount();
+                    int maxCount = bankApp.getCount();
                     Account ac = null;
 
-                    for (int i = 0; i < count; i++) {
+                    for (int i = 0; i < maxCount; i++) {
                         ac = bankApp.getAccount(i);
-                        System.out.printf("%s\t %s\t %d\n", ac.getNumber(), ac.getName(), ac.getBalance());
+                        if (ac != null) {
+                            System.out.printf("%s\t %s\t %d\n", ac.getNumber(), ac.getName(), ac.getBalance());
+                        }
                     }
                 break;
 

@@ -7,43 +7,61 @@ public class BankApplication {
     // Account : 관리대상, 독립적
     // BankApplication : 관리자이자 컨테이너(관리대상을 포함), Account에게 종속적
 
-    private int pos;                // Account의 위치
+    private int count;              // Account Object의 갯수
     private int max;                // Account의 최대치
     private Account[] account;      // 계좌정보들이 들어가는 배열
 
 
 
-    // 계좌생성 ///////////////////////////////////////////////////////////////////////////////////////////////
     //기본 생성자
     public BankApplication() {
-        // 0개 생성
-        pos = 0;
+        count = 0;
         max = 0;
         account = null;
     }
     
-    // 오버로딩 생성자1: count만큼 생성
-    public BankApplication(int count) {
-        pos = 0;
-        max = count;
-        account = new Account[count];
+    // 오버로딩 생성자: count만큼 생성
+    public BankApplication(int Max) {
+        count = 0;
+        max = Max;
+        account = new Account[Max];
     }
 
-    // 오버로딩 생성자2: 클래스의 속성값을 직접 입력하는 경우
+
+
+    // 계좌생성 /////////////////////////////////////////////////////////////////////////////////////////////
+    // 1)
     public boolean createAccount(String number, String name, int balance) {
         Account ac = new Account(number, name, balance);
         return createAccount(ac);
     }
 
-    // 오버로딩 생성자3: 인스턴스를 입력하는 경우
+    // 2)
     public boolean createAccount(Account account) {
+        int pos = this.getEmptySlot();
+
         // account가 없거나 최대치이면 false를 리턴
-        if ((account == null) || ((max - 1) == pos)) {
+        if ((account == null) || (pos == -1)) {
             return false;
         }
-        this.account[pos++] = account;
+        this.account[pos] = account;
+        count++;
         return true;
     }
+
+
+
+    // Account 배열에서 처음으로 만나는 null의 위치(i)를 리턴
+    private int getEmptySlot() {
+        for (int i = 0; i < max; i++) {
+            if (account[i] == null) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+
 
 
     // 계좌삭제 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -55,7 +73,8 @@ public class BankApplication {
             return false;
         }
         // 위치에 null을 넣어준다.
-        account[targetIndex] = null;        
+        account[targetIndex] = null;   
+        count--;     
         return true;
     }
 
@@ -63,13 +82,13 @@ public class BankApplication {
 
     // 계좌목록조회 ///////////////////////////////////////////////////////////////////////////////////////////
     public Account getAccount(int index) {
-        if (index > pos) {
+        if (account[index] == null) {
             return null;
         }
 
         return new Account(account[index].getNumber(),
-                            account[index].getName(),
-                            account[index].getBalance());
+                           account[index].getName(),
+                           account[index].getBalance());
     }
 
 
@@ -113,19 +132,21 @@ public class BankApplication {
     }
 
     private int findAccountIndex(String number) {
-        int count = getCount();
-        for (int i = 0; i < count; i++) 
+        for (int i = 0; i < max; i++) 
         {
-            if (account[i].getNumber().equals(number)) 
-            {
-                return i;
-            }
+            if (account[i] != null) {
+
+                if (account[i].getNumber().equals(number)) 
+                {
+                    return i;
+                }
+            }            
         }
         return -1;
     }
 
     public int getCount() {
-        return pos;
+        return count;
     }
 
 }
