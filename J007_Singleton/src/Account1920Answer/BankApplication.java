@@ -7,13 +7,12 @@ public class BankApplication {
     // Account : 관리대상, 독립적
     // BankApplication : 관리자이자 컨테이너(관리대상을 포함), Account에게 종속적
 
+    // 속성
     private int count;              // Account Object의 갯수
     private int Max;                // Account의 최대치
     private Account[] account;      // 계좌정보들이 들어가는 배열
 
-
-
-    //기본 생성자
+    // 기본 생성자
     public BankApplication() {
         count = 0;
         Max = 0;
@@ -26,7 +25,7 @@ public class BankApplication {
         Max = max;
         account = new Account[max];
 
-        //test-code ////////////////////////////////////////
+        // test-code ///////////////////////////////////////
         account[0] = new Account("111-111", "abc", 10000);
         account[1] = new Account("222-222", "def", 20000);
         account[2] = new Account("333-333", "efg", 30000);
@@ -35,9 +34,13 @@ public class BankApplication {
         ////////////////////////////////////////////////////
     }
 
+    // Getter
+    public int getMax()   { return this.Max; }
+    public int getCount() { return count; }
+
+
 
     ////// 1. 계좌생성 /////////////////////////////////////////////////////////////////////
-    // 1)
     public boolean createAccount(Account account) {
         int pos = this.getEmptySlot();
         
@@ -50,7 +53,6 @@ public class BankApplication {
         return true;
     }
     
-    // 2)
     public boolean createAccount(String number, String name, int balance) {
         Account ac = new Account(number, name, balance);
         return createAccount(ac);
@@ -95,11 +97,6 @@ public class BankApplication {
                            account[index].getBalance());
     }
 
-    // Max값 Getter
-    public int getMax() {
-        return this.Max;
-    }
-
 
 
     ////// 4. 입금하기 /////////////////////////////////////////////////////////////////////
@@ -112,11 +109,12 @@ public class BankApplication {
         if (index == -1) {
             return false;
         }
-        curBalance = account[index].getBalance();
+        curBalance = account[index].getBalance(); // 현재 잔액 가져오기
         account[index].setBalance(curBalance + balance);
         return true;
     }
 
+    // Account[] 배열 속 특정 Account의 인덱스를 찾아서 리턴
     private int findAccountIndex(String number) {
         for (int i = 0; i < Max; i++) 
         {
@@ -129,10 +127,6 @@ public class BankApplication {
             }            
         }
         return -1;
-    }
-
-    public int getCount() {
-        return count;
     }
 
 
@@ -148,8 +142,7 @@ public class BankApplication {
             return false;
         }
 
-        // 현재 잔액을 가지고 온다.
-        curBalance = account[index].getBalance();
+        curBalance = account[index].getBalance(); // 현재 잔액 가져오기
 
         if (curBalance < balance) {
             return false;
@@ -157,7 +150,4 @@ public class BankApplication {
         account[index].setBalance(curBalance - balance);
         return true;
     }
-
-
-
 }
