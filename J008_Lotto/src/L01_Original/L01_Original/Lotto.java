@@ -1,3 +1,4 @@
+package L01_Original;
 public class Lotto {
 
     private int lottoNum;

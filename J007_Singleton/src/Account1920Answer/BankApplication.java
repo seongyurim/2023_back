@@ -6,21 +6,36 @@ public class BankApplication {
         
     // Account : 관리대상, 독립적
     // BankApplication : 관리자이자 컨테이너(관리대상을 포함), Account에게 종속적
-
-    // 속성
+    
+    // ATTRIBUTE
     private int count;              // Account Object의 갯수
     private int Max;                // Account의 최대치
     private Account[] account;      // 계좌정보들이 들어가는 배열
 
-    // 기본 생성자
-    public BankApplication() {
+    // SINGLETON
+    // 외부에서 getInstance를 여러번 실행해도 단 하나의 객체만을 가리키게 된다.
+    private static BankApplication bankApp; // static = Global 영역에 할당
+    public static BankApplication getInstance(int max) {
+        if (bankApp == null) { // 여기부터 있는 bankApp은 BankApplication.bankApp을 생략한 것
+            bankApp = new BankApplication(max);
+        }
+        return bankApp;
+    }
+
+    // 갯수를 설정하지 않고 생성하는 경우를 위해 정의해두었다.
+    public static BankApplication getInstance() {
+        return bankApp;
+    }
+
+    // DEFAULT CONSTRUCTOR
+    private BankApplication() {
         count = 0;
         Max = 0;
         account = null;
     }
     
-    // 오버로딩 생성자: count만큼 생성
-    public BankApplication(int max) {
+    // OVERLOADED CONSTRUCTOR: max만큼 생성
+    private BankApplication(int max) {
         count = 0;
         Max = max;
         account = new Account[max];
@@ -37,6 +52,8 @@ public class BankApplication {
     // Getter
     public int getMax()   { return this.Max; }
     public int getCount() { return count; }
+
+
 
 
 

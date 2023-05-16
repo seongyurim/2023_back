@@ -22,7 +22,7 @@ public class App {
         String temp;
         int userInput;
 
-        BankApplication bankApp = new BankApplication(100);
+        BankApplication bankApp = BankApplication.getInstance(100);
         String number = "";
         String name = "";
         int balance = 0;
