@@ -98,50 +98,50 @@ public class App {
 
 
                 case DEPOSIT_ACCOUNT :
-                number = "";                
-                balance = 0;
+                    number = "";                
+                    balance = 0;
 
-                System.out.println("---------------");
-                System.out.println("| 4. 입금하기 |");
-                System.out.println("---------------");
+                    System.out.println("---------------");
+                    System.out.println("| 4. 입금하기 |");
+                    System.out.println("---------------");
 
-                System.out.printf("계좌번호: ");
-                temp = scan.nextLine();
-                number = temp;
+                    System.out.printf("계좌번호: ");
+                    temp = scan.nextLine();
+                    number = temp;
 
-                System.out.printf("입금액: ");
-                temp = scan.nextLine();
-                balance = Integer.parseInt(temp);
+                    System.out.printf("입금액: ");
+                    temp = scan.nextLine();
+                    balance = Integer.parseInt(temp);
 
-                if (true == bankApp.deposit(number, balance)) {
-                    System.out.println("결과: 입금에 성공하였습니다.");
-                } else {
-                    System.out.println("결과: 입금에 실패하였습니다.");
-                }
+                    if (true == bankApp.deposit(number, balance)) {
+                        System.out.println("결과: 입금에 성공하였습니다.");
+                    } else {
+                        System.out.println("결과: 입금에 실패하였습니다.");
+                    }
                 break;
 
 
                 case WITHDRAW_ACCOUNT :
-                number = "";                
-                balance = 0;
+                    number = "";                
+                    balance = 0;
 
-                System.out.println("---------------");
-                System.out.println("| 5. 출금하기 |");
-                System.out.println("---------------");
+                    System.out.println("---------------");
+                    System.out.println("| 5. 출금하기 |");
+                    System.out.println("---------------");
 
-                System.out.printf("계좌번호: ");
-                temp = scan.nextLine();
-                number = temp;
+                    System.out.printf("계좌번호: ");
+                    temp = scan.nextLine();
+                    number = temp;
 
-                System.out.printf("출금액: ");
-                temp = scan.nextLine();
-                balance = Integer.parseInt(temp);
+                    System.out.printf("출금액: ");
+                    temp = scan.nextLine();
+                    balance = Integer.parseInt(temp);
 
-                if (true == bankApp.withdraw(number, balance)) {
-                    System.out.println("결과: 예금에 성공하였습니다.");
-                } else {
-                    System.out.println("결과: 예금에 실패하였습니다.");
-                }
+                    if (true == bankApp.withdraw(number, balance)) {
+                        System.out.println("결과: 예금에 성공하였습니다.");
+                    } else {
+                        System.out.println("결과: 예금에 실패하였습니다.");
+                    }
                 break;
 
                 default:
