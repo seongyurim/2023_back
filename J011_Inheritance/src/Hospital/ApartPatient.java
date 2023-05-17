@@ -12,6 +12,7 @@ public class ApartPatient extends Patient {
         System.out.println("ApartPatient() - Constructor");
     }
 
+    // Overloaded Constructor
     public ApartPatient(String name, String gender, double weight, String blood, double eyesight) {
         super(name, gender, weight, blood);
         this.eyesight = eyesight;

@@ -35,7 +35,7 @@ public class Patient {
     // Setter
     public void setName(String name)     { this.name = name; }
     public void setGender(String gender) { this.gender = gender; }
-    public void setWeight(double weight) {this.weight = weight; }
+    public void setWeight(double weight) { this.weight = weight; }
     public void setBlood(String blood)   { this.blood = blood; }
 
 

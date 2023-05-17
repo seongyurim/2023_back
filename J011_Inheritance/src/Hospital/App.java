@@ -23,8 +23,11 @@ public class App {
         System.out.println(p2.getName());       // 환자 클래스의 메소드
         System.out.println(p2.getEyesight());   // 안과환자 클래스의 메소드
 
+        
         System.out.println("***** checkMedical 메소드 실행 *****");
         p2.checkMedical();
+
+        System.out.println("***** checkMedicalforSurgery 메소드 실행 *****");
         p2.checkMedicalforSurgery();
 
 
