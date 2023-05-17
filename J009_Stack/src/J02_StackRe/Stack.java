@@ -2,10 +2,10 @@ package J02_StackRe;
 
 public class Stack {
  
-    public static final int ERROR_STACK = Integer.MAX_VALUE;
-    private int sp; // 스택포인터: push와 pop의 위치정보
-    private int[] ar;
-    private int size;
+    public static final int ERROR_STACK = Integer.MIN_VALUE;
+    private int sp;   // 스택포인터: push와 pop의 위치정보
+    private int[] ar; // 배열
+    private int size; // 배열의 크기
 
     // 기본 생성자
     public Stack() {
@@ -65,4 +65,14 @@ public class Stack {
         sp--;
         return ar[sp];
     }
+
+    public void printAll() {
+        int count = sp;
+        int index = sp - 1;
+        for (int i = 0; i < count; i++) {
+            System.out.println(ar[index]);
+            index--;
+        }
+    }
+
 }
