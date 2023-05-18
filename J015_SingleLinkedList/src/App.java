@@ -10,5 +10,8 @@ public class App {
         // lc.getNode(0);
 
         lc.deleteNode(0);
+        lc.deleteNode(1);
+
+        lc.printAll(); // 33만 남아야 하는데 22만 출력됨ㅠ
     }
 }

@@ -36,18 +36,29 @@ public class ListContainer {
 
     // 노드를 지운다.
     public boolean deleteNode(int index) {
-        // ex. 22를 지우려면
-        // 노드카운트를 통해 대상노드(22)의 앞노드(11), 뒷노드(33)를 가지고 온다.
-        Node prevNode = getNode(index - 1);
-        Node presNode = getNode(index);
-        Node nextNode = getNode(index + 1);
 
-        // 앞노드(11)의 next에 뒷노드(33)의 참조값을 넣어서 연결한다.
-        prevNode.next = nextNode;
+        // 앞노드-대상노드-뒷노드를 가지고 온다.
+        Node prevNode = getNode(index - 1); // 앞노드
+        Node presNode = getNode(index);     // 대상노드
+        Node nextNode = getNode(index + 1); // 뒷노드
 
-        // 대상노드(22)의 value(22)와 next(33의 참조값)을 없앤다.
-        presNode.value = 0;
-        presNode.next = null;
+        if (index == 0) {
+            // 헤더에 대상노드(index 0)의 뒷노드 참조값을 넣어서 연결한다.
+            this.header = nextNode;
+
+            // 대상노드(index 0)의 value, next 값을 없애서 연결을 끊는다.
+            presNode.value = 0;
+            presNode.next = null;
+
+        } else { // ex. 22를 지우려면            
+            // 앞노드(11)의 next에 뒷노드(33)의 참조값을 넣어서 연결한다.
+            prevNode.next = nextNode;
+
+            // 대상노드(22)의 value, next 값을 없애서 연결을 끊는다.
+            presNode.value = 0;
+            presNode.next = null;
+        }
+        nodeCount--;
         return true;
     }
 
@@ -66,8 +77,20 @@ public class ListContainer {
 
 
     // 옵션: 전체출력
-    public void printAll() {
+    public boolean printAll() {
+        System.out.println("*** 노드리스트 전체를 출력합니다. ***");
 
+        if (nodeCount == 0) {
+            System.out.println("츨력할 노드가 없어요!"); // 체크용 임시메세지
+            return false;
+        }
+
+        Node printNode = header;
+        for (int i = 0; i < nodeCount; i++) {
+            System.out.println(printNode.value);
+            printNode = printNode.next;
+        }
+        return true;
     }
 
 
