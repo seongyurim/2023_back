@@ -1,4 +1,4 @@
-package Phone;
+package J02_Phone;
 public class Phone {
     
     public String model;

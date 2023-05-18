@@ -1,4 +1,6 @@
-package Hospital;
+
+
+import com.acompany.Patient.Patient;
 
 public class ApartPatient extends Patient {
     

@@ -1,4 +1,5 @@
-package Hospital;
+package com.acompany.Patient;
+
 
 public class Patient {
     

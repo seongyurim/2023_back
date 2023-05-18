@@ -1,4 +1,4 @@
-package Hospital;
+import com.acompany.Patient.Patient;
 
 public class SpartPatient extends Patient {
     

@@ -1,4 +1,4 @@
-package Phone;
+package J02_Phone;
 
 public class App {
     public static void main(String[] args) {
