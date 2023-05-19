@@ -65,32 +65,30 @@ public class ListContainer {
 
     // 노드를 가지고 온다.
     public Node getNode(int index) {
-        Node findNode = header;
-        if (nodeCount == 0) {
+        Node target = header;
+        if ((index < 0) || (index >= nodeCount)) {
             return null;
         }
         for (int i = 0; i < index; i++) {
-            findNode = findNode.next;
+            target = target.next;
         }
-        return findNode;
+        return target;
     }
 
 
     // 옵션: 전체출력
     public boolean printAll() {
-        System.out.println("*** 노드리스트를 출력합니다. ***");
-
+        
         if (nodeCount == 0) {
-            System.out.println("츨력할 노드가 없어요!"); // 체크용 임시메세지
             return false;
         }
-
-        Node printNode = header;
+        
+        System.out.println("*** 노드리스트를 출력합니다. ***");
+        Node target = header;
         for (int i = 0; i < nodeCount; i++) {
-            System.out.println(printNode.value);
-            printNode = printNode.next;
+            System.out.println(target.value);
+            target = target.next;
         }
         return true;
     }
-
 }

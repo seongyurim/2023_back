@@ -7,15 +7,14 @@ public class App {
         lc.insertNode(new Node(11));
         lc.insertNode(new Node(22));
         lc.insertNode(new Node(33));
-        lc.insertNode(new Node(44));
-        lc.insertNode(new Node(55));
-        lc.insertNode(new Node(66));
 
-        // lc.getNode(0);
+        // System.out.println(lc.getNode(0).value);
+        // System.out.println(lc.getNode(1).value);
+        // System.out.println(lc.getNode(2).value);
 
         lc.deleteNode(0);
         lc.deleteNode(0);
-
-        lc.printAll(); // 오류발생..??
+        lc.deleteNode(0);
+        lc.printAll();
     }
 }

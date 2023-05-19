@@ -36,7 +36,16 @@ public class ListContainer {
     }
 
 
-    // 노드를 지운다.
+    ////////////////////////////
+    // public boolean deleteNode(Node node) {
+
+
+
+    //     return true;
+    // }
+
+
+    // 인덱스에 해당하는 노드를 지운다.
     public boolean deleteNode(int index) {
 
         Node target = header; // 대상노드
@@ -63,32 +72,31 @@ public class ListContainer {
 
     // 노드를 가지고 온다.
     public Node getNode(int index) {
-        Node findNode = header;
-        if (nodeCount == 0) {
+
+        Node target = header;
+        if ((index < 0) || (index >= nodeCount)) {
             return null;
         }
+
+        // target을 찾는다.
         for (int i = 0; i < index; i++) {
-            findNode = findNode.next;
+            target = target.next;
         }
-        return findNode;
+
+        // 노드를 만들고 target의 내용을 복사한다.
+        Node node = new Node(target.value);
+        return node;
     }
 
 
     // 옵션: 전체출력
     public boolean printAll() {
         System.out.println("*** 노드리스트를 출력합니다. ***");
-
-        if (nodeCount == 0) {
-            System.out.println("츨력할 노드가 없어요!"); // 체크용 임시메세지
-            return false;
-        }
-
-        Node printNode = header;
+        Node target = header;
         for (int i = 0; i < nodeCount; i++) {
-            System.out.println(printNode.value);
-            printNode = printNode.next;
+            System.out.printf("%dth : %d, %s\n", i, target.value, target.next);
+            target = target.next;
         }
         return true;
     }
-
 }
