@@ -1,3 +1,4 @@
+package J02_Sam;
 public class Node {
     
     public int value;

@@ -1,3 +1,4 @@
+package J01_Myown;
 public class App {
     public static void main(String[] args) throws Exception {
        
@@ -10,11 +11,20 @@ public class App {
         lc.insertNode(new Node(55));
         lc.insertNode(new Node(66));
 
-        // lc.getNode(0);
+        lc.deleteNode(0);
+        lc.printAll();       // 22, 33, 44, 55, 66
 
         lc.deleteNode(0);
-        lc.deleteNode(1);
+        lc.printAll();       // 33, 44, 55, 66
 
-        lc.printAll(); // 오류발생..??
+        lc.deleteNode(3);
+        lc.printAll();      // 33, 44, 55
+
+        lc.deleteNode(3);
+        lc.printAll();
+
+
+
+
     }
 }

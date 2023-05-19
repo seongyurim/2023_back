@@ -1,4 +1,6 @@
+package J02_Sam;
 public class ListContainer {
+    // 연결리스트를 관리하기 위한 함수의 집합
 
     public Node header;
     public int nodeCount;
@@ -37,26 +39,22 @@ public class ListContainer {
     // 노드를 지운다.
     public boolean deleteNode(int index) {
 
-        // 앞노드-대상노드-뒷노드를 가지고 온다.
-        Node prevNode = getNode(index - 1); // 앞노드
-        Node presNode = getNode(index);     // 대상노드
-        Node nextNode = getNode(index + 1); // 뒷노드
+        Node target = header; // 대상노드
+        Node before = null;   // 앞노드
+
+        if ((index < 0) || (index >= nodeCount)) {
+            return false;
+        }
 
         if (index == 0) {
-            // 헤더에 대상노드(index 0)의 뒷노드 참조값을 넣어서 연결한다.
-            this.header = nextNode;
+            header = target.next;
 
-            // 대상노드(index 0)의 value, next 값을 없애서 연결을 끊는다.
-            presNode.value = 0;
-            presNode.next = null;
-
-        } else { // ex. 22를 지우려면            
-            // 앞노드(11)의 next에 뒷노드(33)의 참조값을 넣어서 연결한다.
-            prevNode.next = nextNode;
-
-            // 대상노드(22)의 value, next 값을 없애서 연결을 끊는다.
-            presNode.value = 0;
-            presNode.next = null;
+        } else {
+            for (int i = 0; i < index; i++) {
+                before = target;
+                target = target.next;
+            }
+            before.next = target.next;
         }
         nodeCount--;
         return true;
@@ -78,7 +76,7 @@ public class ListContainer {
 
     // 옵션: 전체출력
     public boolean printAll() {
-        System.out.println("*** 노드리스트 전체를 출력합니다. ***");
+        System.out.println("*** 노드리스트를 출력합니다. ***");
 
         if (nodeCount == 0) {
             System.out.println("츨력할 노드가 없어요!"); // 체크용 임시메세지
@@ -92,8 +90,5 @@ public class ListContainer {
         }
         return true;
     }
-
-
-
 
 }
