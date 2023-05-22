@@ -3,7 +3,7 @@
 // 이를 '추상클래스'라고 한다.
 public abstract class Unit {
 
-    protected int attackSpped;
+    protected int attackSpeed;
     
     // 원래 메소드: 실행의 용도
     // 현재 메소드: 약속(규약)의 용도일 뿐이지, 실행 목적으로 존재하는 것이 아니다.
