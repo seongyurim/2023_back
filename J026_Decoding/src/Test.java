@@ -2,16 +2,34 @@ public class Test {
 
     public boolean decoding(String encoded) {
 
-
         return true;
     }
 
-    
     public static void main(String[] args) {
         
         String encoded = "J BN B CPZ";
         String decoded;
+
+        // 암호화된 문장을 분리
+        String[] encodedSplit = encoded.split("");
+
+        // 잘 분리되었는지 반복문으로 확인
+        for (int i = 0; i < encodedSplit.length; i++) {
+            System.out.println(encodedSplit[i]);
+        }
+
+        //
+        // for (int i= 0; i < encodedSplit.length; i++) {
+        //     if (true == (encodedSplit[0] = encodedArray[i])) {
+                
+        //     }
+        // }
     
+
+
+
+
+
 
         // 암호문 기준 알파벳 배열 생성 /////////////////////////////////////
         char[] encodedArray = new char[26];
