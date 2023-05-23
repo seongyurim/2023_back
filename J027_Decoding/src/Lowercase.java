@@ -1,4 +1,4 @@
-public class Lowercase implements Decoder {
+public class Lowercase implements Manager {
     
     @Override
     public String decode(String data) {

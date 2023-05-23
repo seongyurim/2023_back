@@ -1,4 +1,4 @@
-public interface Decoder {
+public interface Manager {
     
     public String decode(String data);
     
