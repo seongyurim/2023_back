@@ -1,3 +1,4 @@
+package temp;
 public class Test {
 
     public boolean decoding(String encoded) {

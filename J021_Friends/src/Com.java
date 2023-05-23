@@ -17,10 +17,6 @@ public class Com implements Friends {
         this.dept = dept;
     }
 
-    // Getter & Setter
-    public String getDept() { return this.dept; }
-    public void setDept(String dept) { this.dept = dept; }
-
     // Show Method
     @Override
     public void show() {

@@ -17,10 +17,6 @@ public class Univ implements Friends {
         this.major = major;
     }
 
-    // Getter & Setter
-    public String getDept() { return this.major; }
-    public void setDept(String major) { this.major = major; }
-
     // Show Method
     @Override
     public void show() {
