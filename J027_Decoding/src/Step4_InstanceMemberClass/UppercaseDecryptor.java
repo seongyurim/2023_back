@@ -1,26 +1,28 @@
 package Step4_InstanceMemberClass;
 
-public class DecryptLowercase implements Decryptable {
+public class UppercaseDecryptor implements Decryptable {
     
     public static final int ALPHA = 26;
 
     // 속성
     MappingTable mtable;
+    String decData;
     
     // 기본생성자
-    public DecryptLowercase() {
+    public UppercaseDecryptor() {
         mtable = new MappingTable();
+        decData = "";
     }
     
     // 인스턴트 멤버 클래스(매핑테이블)
     private class MappingTable {
 
-        private char[] encode; // 암호화 알파벳 배열(a~b~~z)
-        private char[] decode; // 복호화 알파벳 배열(z~a~~y)
+        private char[] encode; // 암호화 알파벳 배열(A~B~~Z)
+        private char[] decode; // 복호화 알파벳 배열(Z~A~~Y)
     
         // 매핑테이블 생성
         public MappingTable() {
-            char c = 'a';
+            char c = 'A';
     
             // 알파벳 26개가 들어가는 배열의 메모리 공간 할당
             encode = new char[ALPHA];
@@ -33,8 +35,8 @@ public class DecryptLowercase implements Decryptable {
             }
     
             // Decode 배열 초기화
-            decode[0] = 'z';
-            c = 'a';
+            decode[0] = 'Z';
+            c = 'A';
             for (int i = 1; i < ALPHA; i++) {
                 decode[i] = c;
                 c++;
@@ -67,7 +69,6 @@ public class DecryptLowercase implements Decryptable {
     @Override
     public String decrypt(String encData) {
 
-        String decData = "";
         char encChar = 0;
 
         for (int i = 0; i < encData.length(); i++) {

@@ -1,4 +1,4 @@
-package temp;
+package FirstThought;
 public class Test {
 
     public boolean decoding(String encoded) {
