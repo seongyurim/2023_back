@@ -1,13 +1,13 @@
-package Step4_Interfacing;
+package Step4_Interfacing_Notyet;
 
-public class DecryptUppercaseByTable {
+public class DecryptUppercase {
     
     public static final int ALPHA = 26;
-    private char[] upperEncode;
-    private char[] upperDecode;
+    private char[] upperEncode; // 암호화된 알파벳 코드(A~Z)
+    private char[] upperDecode; // 복호화된 알파벳 코드(Z~Y)
 
     // 매핑테이블 생성
-    public DecryptUppercaseByTable() {
+    public DecryptUppercase() {
         char upperChar = 'A';
 
         // char 26개가 들어가는 배열의 메모리 할당

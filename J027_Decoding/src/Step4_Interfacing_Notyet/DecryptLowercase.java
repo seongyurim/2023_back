@@ -1,14 +1,13 @@
-package Step4_Interfacing;
+package Step4_Interfacing_Notyet;
 
-public class DecryptLowercaseByTable {
+public class DecryptLowercase {
     
     public static final int ALPHA = 26;
-    private char[] lowerEncode;
-    private char[] lowerDecode;
-
+    private char[] lowerEncode; // 암호화된 알파벳 코드(A~Z)
+    private char[] lowerDecode; // 복호화된 알파벳 코드(Z~Y)
 
     // 매핑테이블 생성
-    public DecryptLowercaseByTable() {
+    public DecryptLowercase() {
         char lowerChar = 'a';
 
         // char 26개가 들어가는 배열의 메모리 할당
