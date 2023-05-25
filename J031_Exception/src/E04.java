@@ -11,7 +11,7 @@ public class E04 {
 
         BufferedWriter writer = null;
 
-        try {
+        //try {
             writer = Files.newBufferedWriter(file);
             writer.write('A');
             writer.write('B');
@@ -19,9 +19,9 @@ public class E04 {
             if (writer != null) {
                 writer.close();
             }
-        }
-        catch(IOException e) {
-            e.printStackTrace();
-        }
+        //}
+        // catch(IOException e) {
+        //     e.printStackTrace();
+        // }
     }
 }
