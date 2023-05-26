@@ -9,19 +9,13 @@ public class E04 {
         
         Path file = Paths.get("C:\\AAA\\test.txt");
 
-        BufferedWriter writer = null;
-
-        //try {
-            writer = Files.newBufferedWriter(file);
+        try (BufferedWriter writer = Files.newBufferedWriter(file)) {
             writer.write('A');
             writer.write('B');
+        }
+        catch(IOException e) {
+            e.printStackTrace();
+        }
 
-            if (writer != null) {
-                writer.close();
-            }
-        //}
-        // catch(IOException e) {
-        //     e.printStackTrace();
-        // }
     }
 }
