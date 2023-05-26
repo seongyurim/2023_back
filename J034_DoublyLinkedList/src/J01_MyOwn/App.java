@@ -8,5 +8,7 @@ public class App {
         lc.insertNodeToFirst(new Node(11, "첫번째 노드"));
         lc.insertNodeToFirst(new Node(22, "두번째 노드"));
         lc.insertNodeToFirst(new Node(33, "세번째 노드"));
+
+        lc.printAll();
     }
 }

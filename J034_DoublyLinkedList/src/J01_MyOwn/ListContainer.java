@@ -133,9 +133,19 @@ public class ListContainer {
     ////// 출력 ///////////////////////////////////////////////////////////////////////
 
     public boolean printAll() {
+        
+        System.out.println("*** 노드리스트를 출력합니다. ***");
 
+        if (nodeCount == 0) {
+            return false;
+        }
 
+        Node printNode = head;
 
+        for (int i = 0; i < nodeCount; i++) {
+            System.out.printf("%d번째 노드의 key: %d / value: %s\n", i+1, printNode.key, printNode.value);
+            printNode = printNode.next;
+        }
         return true;
     }
 
