@@ -9,7 +9,7 @@ public class Student {
         age = 0;
     }
 
-    public Student() {
+    public Student(String name, int age) {
         this.name = name;
 
         try {
