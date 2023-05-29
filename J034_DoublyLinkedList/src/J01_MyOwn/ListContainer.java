@@ -14,14 +14,31 @@ public class ListContainer {
 
 
     ////// 추가 ///////////////////////////////////////////////////////////////////////
+
+    // (Key 중복여부 확인)
+    private boolean isKeyExist(Node newNode) {
+
+        Node target = head;
+        // 들어온 노드의 키 값이 이미 존재하는지 확인
+        for (int i = 0; i < nodeCount; i++) {
+            if (target.getKey() == newNode.getKey()) {
+                return true;
+            }
+            target = target.next;
+        }
+        return false;
+    }
     
     // 1. 앞에 추가
     public boolean insertNodeToFirst(Node newNode) {
 
+        if (true == isKeyExist(newNode)) {
+            return false;
+        }
+
         if (nodeCount == 0) {
             head = newNode;
             tail = newNode;
-            // nodeCount++;
         }
         else {
             newNode.next = head;
@@ -34,6 +51,10 @@ public class ListContainer {
 
     // 2. 뒤에 추가
     public boolean insertNodeToLast(Node newNode) {
+
+        if (true == isKeyExist(newNode)) {
+            return false;
+        }
 
         if (nodeCount == 0) {
             insertNodeToFirst(newNode);
@@ -48,7 +69,7 @@ public class ListContainer {
     }
 
     // (특정 노드 가져오기)
-    public Node getNode(int pos) {
+    private Node getNode(int pos) {
 
         // 잘못된 범위인 경우
         if ((pos < 0) || (pos >= nodeCount))
@@ -64,6 +85,10 @@ public class ListContainer {
 
     // 3. 특정 위치에 추가
     public boolean insertNodeToPos(Node newNode, int pos) {
+
+        if (true == isKeyExist(newNode)) {
+            return false;
+        }
 
         // 잘못된 위치를 입력한 경우
         if ((pos < 0) || (pos > nodeCount)) {
@@ -165,18 +190,16 @@ public class ListContainer {
     public boolean deleteNodeByValue (String value, boolean bLike) {
 
         Node target = head;
-        int targetPos = 0;
 
         // 특정 문자열과 일치하는 노드만 지운다.
         if (bLike == false) {
             for (int i = 0; i < nodeCount; i++) {
                 if (true == target.getValue().equals(value)) {
-                    targetPos = i;
-                    break;
+                    deleteNodeByIndex(i);
+                    i--;
                 }
                 target = target.next;
             }
-            deleteNodeByIndex(targetPos);
             return true;
         }
 
