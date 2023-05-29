@@ -9,10 +9,10 @@ public class App {
 
         lc.insertNodeToTail(new Node(11, "강아지"));           // 끝에 생성됨
         lc.insertNodeToHead(new Node(22, "강아지 & 고양이"));  // 앞에 생성됨
-        lc.insertNodeToPos (new Node(33, "햄스터 & 팬더"), 1); // 인덱스 1위치에 생성됨
+        lc.insertNodeToPos (new Node(33, "햄스터 & 팬더"), 1); // 인덱스 1 위치에 생성됨
         lc.insertNodeToTail(new Node(44, "강아지들"));         // 끝에 생성됨
         lc.insertNodeToTail(new Node(33, "기니피그"));         // 키값(33) 중복으로 생성 실패
-        lc.insertNodeToPos (new Node(55, "쿼카 & 팬더"), 100); // nodeCount값을 초과하여 끝에 생성됨
+        lc.insertNodeToPos (new Node(55, "쿼카 & 팬더"), 100); // 끝에 생성됨(nodeCount 초과)
 
         // 노드리스트가 아래의 순서대로 구성되었다.
         // 0번째 노드의 key: 22 / value: 강아지 & 고양이
@@ -43,8 +43,8 @@ public class App {
         // 2) bLike == true  > 특정 문자열을 포함하면 모두 삭제
 
         // lc.deleteNodeByValue("강아지", false); // 일치
-        // lc.deleteNodeByValue("강아지", true); // 포함
-        // lc.deleteNodeByValue("팬더", true); // 포함
+        // lc.deleteNodeByValue("강아지", true);  // 포함
+        // lc.deleteNodeByValue("팬더", true);    // 포함
 
         lc.printAll(); // 출력
     }
