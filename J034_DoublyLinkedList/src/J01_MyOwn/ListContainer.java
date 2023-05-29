@@ -29,8 +29,8 @@ public class ListContainer {
         return false;
     }
     
-    // 1. 앞에 추가
-    public boolean insertNodeToFirst(Node newNode) {
+    // 1. 맨앞에 추가
+    public boolean insertNodeToHead(Node newNode) {
 
         if (true == isKeyExist(newNode)) {
             return false;
@@ -49,15 +49,15 @@ public class ListContainer {
         return true;
     }
 
-    // 2. 뒤에 추가
-    public boolean insertNodeToLast(Node newNode) {
+    // 2. 맨뒤에 추가
+    public boolean insertNodeToTail(Node newNode) {
 
         if (true == isKeyExist(newNode)) {
             return false;
         }
 
         if (nodeCount == 0) {
-            insertNodeToFirst(newNode);
+            insertNodeToHead(newNode);
         }
         else {
             tail.next = newNode;
@@ -69,7 +69,7 @@ public class ListContainer {
     }
 
     // (특정 노드 가져오기)
-    private Node getNode(int pos) {
+    public Node getNode(int pos) {
 
         // 잘못된 범위인 경우
         if ((pos < 0) || (pos >= nodeCount))
@@ -90,35 +90,30 @@ public class ListContainer {
             return false;
         }
 
-        // 잘못된 위치를 입력한 경우
-        if ((pos < 0) || (pos > nodeCount)) {
-            return false;
-        }
-
-        // 추가하려는 위치가 가장 앞일 경우 insertNodetoFirst 호출 
-        if (pos == 0) {
-            insertNodeToFirst(newNode);
+        // 추가하려는 위치가 0보다 작거나 같으면 맨앞에 추가
+        if (pos <= 0) {
+            insertNodeToHead(newNode);
             return true;
         }
 
-        // 추가하려는 위치가 마지막일 경우 insertNodetoLast 호출
-        if (pos == nodeCount) {
-            insertNodeToLast(newNode);
+        // 추가하려는 위치가 nodeCount보다 크거나 같으면 맨뒤에 추가
+        else if (pos >= nodeCount) {
+            insertNodeToTail(newNode);
             return true;
         }
 
-        // 추가하려는 위치의 이전노드
-        Node prevNode = getNode(pos - 1);
-
-        // 추가하려는 위치의 노드
-        Node nextNode = prevNode.next;
-
-        prevNode.next = newNode;
-        nextNode.prev = newNode;
-        newNode.prev = prevNode;
-        newNode.next = nextNode;
-        nodeCount++;
-        return true;
+        // 특정 위치에 추가
+        else {
+            Node prevNode = getNode(pos - 1); // 추가하려는 위치의 앞노드
+            Node nextNode = prevNode.next;    // 추가하려는 위치의 뒷노드
+    
+            prevNode.next = newNode;
+            nextNode.prev = newNode;
+            newNode.prev = prevNode;
+            newNode.next = nextNode;
+            nodeCount++;
+            return true;
+        }
     }
 
 
@@ -126,23 +121,23 @@ public class ListContainer {
 
     ////// 삭제 ///////////////////////////////////////////////////////////////////////
 
-    // 1. 인덱스로 삭제
-    public boolean deleteNodeByIndex (int pos) {
+    // 1. position 값으로 삭제
+    public boolean deleteNodeByPos (int pos) {
 
         // 노드가 존재하지 않는 경우
         if (nodeCount == 0) {
             return false;
         }
 
-        // 헤드 노드 삭제
-        else if (pos == 0) {
+        // pos가 0보다 작거나 같으면 헤드 노드 삭제
+        else if (pos <= 0) {
             head = head.next;
             nodeCount--;
             return true;
         }
 
-        // 테일 노드 삭제
-        else if (pos == (nodeCount - 1)) {
+        // pos가 nodeCount보다 크거나 같으면 테일 노드 삭제
+        else if (pos >= (nodeCount - 1)) {
             tail.prev.next = null;
             tail = tail.prev;
             nodeCount--;
@@ -166,6 +161,7 @@ public class ListContainer {
     // 2. 키를 검색해서 삭제
     public boolean deleteNodeByKey (int key) {
 
+        // 노드가 존재하지 않는 경우
         if (nodeCount == 0) {
             return false;
         }
@@ -179,23 +175,23 @@ public class ListContainer {
                 }
                 target = target.next;
             }
-            deleteNodeByIndex(targetPos);
+            deleteNodeByPos(targetPos);
             return true;
         }
     }
 
     // 3. 문자(value)로 삭제
-    //    1) bLike == false > 특정 문자열과 일치하는 노드만 지운다.
-    //    2) bLike == true  > 특정 문자열을 포함하는 노드까지 지운다. 
+    //    1) bLike == false > 특정 문자열과 정확히 '일치'하는 노드 삭제
+    //    2) bLike == true  > 특정 문자열을 '포함'하는 노드 삭제
     public boolean deleteNodeByValue (String value, boolean bLike) {
 
         Node target = head;
 
-        // 특정 문자열과 일치하는 노드만 지운다.
+        // 특정 문자열과 '일치'하는 노드를 모두 지운다. (equals 사용)
         if (bLike == false) {
             for (int i = 0; i < nodeCount; i++) {
                 if (true == target.getValue().equals(value)) {
-                    deleteNodeByIndex(i);
+                    deleteNodeByPos(i);
                     i--;
                 }
                 target = target.next;
@@ -203,11 +199,11 @@ public class ListContainer {
             return true;
         }
 
-        // 특정 문자열을 포함하는 노드까지 지운다.
+        // 특정 문자열을 '포함'하는 노드를 모두 지운다. (contains 사용)
         else if (bLike == true) {
             for (int i = 0; i < nodeCount; i++) {
                 if (true == target.getValue().contains(value)) {
-                    deleteNodeByIndex(i);
+                    deleteNodeByPos(i);
                     i--;
                 }
                 target = target.next;
@@ -229,12 +225,13 @@ public class ListContainer {
             System.out.println("*** 노트리스트가 비어있어요. ***");
             return false;
         }
-
-        Node target = head;
-        for (int i = 0; i < nodeCount; i++) {
-            System.out.printf("%d번째 노드의 key: %d / value: %s\n", i+1, target.key, target.value);
-            target = target.next;
+        else {
+            Node target = head;
+            for (int i = 0; i < nodeCount; i++) {
+                System.out.printf("%d번째 노드의 key: %d / value: %s\n", i, target.key, target.value);
+                target = target.next;
+            }
+            return true;
         }
-        return true;
     }
 }
