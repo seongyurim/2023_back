@@ -23,18 +23,16 @@ public class Student {
         Student target;
         if (obj instanceof Student) {
             target = (Student)obj;
-        } else {
-            return false;
+            if (studentNum.equals(target.getStudentNum())) {
+                return true;
+            }
         }
-
-        if (false == this.studentNum.equals(target.studentNum)) {
-            return false;
-        }
-        return true;
+        return false;
     }
 
     @Override
     public int hashCode() {
         return super.hashCode() + Integer.parseInt(studentNum);
+        // return studentNum.hashCode(); // 교재 정답
     }
 }

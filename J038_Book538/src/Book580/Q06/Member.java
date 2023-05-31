@@ -12,22 +12,11 @@ public class Member {
         this.name = name;
     }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    public String getId()  { return this.id; }
+    public String getName() { return this.name; }
+    public void setId(String id)     { this.id = id; }
+    public void setName(String name) { this.name = name; }
+    
     @Override
     public String toString() {
         return "{" +
@@ -35,5 +24,4 @@ public class Member {
             ", name='" + getName() + "'" +
             "}";
     }
-    
 }
