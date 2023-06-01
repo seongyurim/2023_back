@@ -1,4 +1,4 @@
-package ObjectClone;
+package ObjectClone_Rect;
 
 // x, y 좌표를 저장하기 위한 클래스
 // 클론을 오버라이딩 할 것이라면 implements Cloneable 반드시 선언

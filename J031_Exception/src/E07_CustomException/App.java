@@ -7,6 +7,7 @@ public class App {
         System.out.println(stu1);
 
         Student stu2 = new Student("abc", 0);
-
+        System.out.println(stu2);
+        
     }    
 }
