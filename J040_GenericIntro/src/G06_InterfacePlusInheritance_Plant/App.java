@@ -4,14 +4,12 @@ public class App {
     public static void main(String[] args) {
         
         System.out.println("*** APPLE ***");
-        Box<Apple> aBox = new Box<>();
-        aBox.set(new Apple());
+        Box<Apple> aBox = new Box<>(new Apple());
         aBox.eatPlants();
         aBox.makeEnergy();
 
         System.out.println("*** ORANGE ***");
-        Box<Orange> oBox = new Box<>();
-        oBox.set(new Orange());
+        Box<Orange> oBox = new Box<>(new Orange());
         oBox.eatPlants();
         oBox.makeEnergy();
 

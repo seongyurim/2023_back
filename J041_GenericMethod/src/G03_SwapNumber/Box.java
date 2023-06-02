@@ -1,0 +1,14 @@
+package G03_SwapNumber;
+public class Box<T extends Number> {
+
+    private T obj;
+
+    public T get() { return obj; }
+    public void set(T obj) { this.obj = obj; }
+
+    @Override
+    public String toString() {
+        return obj.toString();
+    }
+
+}

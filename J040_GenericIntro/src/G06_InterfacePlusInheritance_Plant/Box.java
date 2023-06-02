@@ -1,6 +1,6 @@
 package G06_InterfacePlusInheritance_Plant;
 
-public class Box<T extends Plants & Eatable> {
+public class Box<T extends Plants & Eatable> extends Steel implements Cloneable {
 
     private T plants;
 
