@@ -6,6 +6,7 @@ public class App {
     }
     public static void main(String[] args) throws Exception {
 
+        // Box 클래스와 makeBox 메소드 모두에 제한을 두지 않았다.
         // 컴파일 에러
         // Box<String> box1 = BoxFactory.makeBox(new String("abc")); // error
         // System.out.println(box1);
@@ -17,8 +18,8 @@ public class App {
         Box<Double> box3 = BoxFactory.makeBox(12.25);
         System.out.println(box3);
         // 하지만 Z와 T의 frame이 다르다.
-        // 좌항(Box Class)        T의 데이터타입: 아무 클래스
-        // 우항(BoxFactory Class) Z의 데이터타입: Number에서 상속받은 클래스들
+        // 좌항(Box Class)         T의 데이터타입: 아무 클래스
+        // 우항(BoxFactory Method) Z의 데이터타입: Number에서 상속받은 클래스들
         // 만들어진 데이터타입은 Integer로 같으나 frame이 다른 상태이다.
         // frame이 서로 다르므로 논리적으로 알맞지 않은 상태이다.
         // 즉, 박스공장에서 만들어낸 박스와 순수한 박스 사이에 미스매치가 발생하였다.

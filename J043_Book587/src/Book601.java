@@ -32,7 +32,7 @@ public class Book601 {
 
     public static void main(String[] args) throws Exception {
 
-        // 모든 사람이 등록 가능: ?
+        // 모든 사람이 등록 가능: <?>
         Course.registerCourse1(new Applicant<Person>(new Person()));
         Course.registerCourse1(new Applicant<Worker>(new Worker()));
         Course.registerCourse1(new Applicant<Student>(new Student()));
@@ -40,7 +40,7 @@ public class Book601 {
         Course.registerCourse1(new Applicant<MiddleStudent>(new MiddleStudent()));
         System.out.println("---------------------------------------");
 
-        // 학생만 등록 가능: ? extends Student
+        // 학생만 등록 가능: <? extends Student>
         // Course.registerCourse2(new Applicant<Person>(new Person())); // error
         // Course.registerCourse2(new Applicant<Worker>(new Worker())); // error
         Course.registerCourse2(new Applicant<Student>(new Student()));
@@ -48,7 +48,7 @@ public class Book601 {
         Course.registerCourse2(new Applicant<MiddleStudent>(new MiddleStudent()));
         System.out.println("---------------------------------------");
         
-        // 직장인 및 일반인만 등록 가능: ? super Worker
+        // 직장인 및 일반인만 등록 가능: <? super Worker>
         Course.registerCourse3(new Applicant<Person>(new Person()));
         Course.registerCourse3(new Applicant<Worker>(new Worker()));
         // Course.registerCourse3(new Applicant<Student>(new Student())); // error

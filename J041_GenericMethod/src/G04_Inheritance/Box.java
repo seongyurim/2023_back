@@ -1,7 +1,7 @@
 package G04_Inheritance;
 
-// public class Box<T extends Number> {
-public class Box<T> {
+public class Box<T extends Number> {
+// public class Box<T> {
     
     protected T obj;
     // 의미상 protected로 해보았다.

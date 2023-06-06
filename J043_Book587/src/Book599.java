@@ -16,7 +16,6 @@ public class Book599 {
 
         boolean result1 = compare(10, 20);
         System.out.println(result1);
-        System.out.println();
 
         boolean result2 = compare(4.5, 4.5);
         System.out.println(result2);

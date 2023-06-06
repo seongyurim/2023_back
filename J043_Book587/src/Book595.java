@@ -12,8 +12,8 @@ public class Book595 {
 
     public static void main(String[] args) throws Exception {
 
-        Box<String> box0 = new Box<>();
-        box0.content = "999";
+        // Box<String> box0 = new Box<>();
+        // box0.content = "999";
 
         Box box1 = new Box();
         box1.content = "100";

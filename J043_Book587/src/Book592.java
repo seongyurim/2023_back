@@ -35,6 +35,8 @@ public class Book592 {
 
     public static void main(String[] args) throws Exception {
 
+        // 각 에이전시에서 대여한 Home과 Car를 이용하는 방법
+
         HomeAgency hAgency = new HomeAgency();
         Home home = hAgency.rent();
         home.turnOnLight(); // 전등을 켭니다.

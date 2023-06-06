@@ -1,10 +1,8 @@
 package G02;
-// public class Box<T extends Number> {
+
 public class Box<T> {
     
     protected T obj;
-    // 의미상 protected로 해보았다.
-    // SteelBox가 다른 패키지에 있을 수도 있으므로(?)
 
     public Box() {}
     public Box(T obj) {
