@@ -16,15 +16,7 @@ public class BoxHandler {
 
         box.set(t);
 
-        // System.out.println(box.get());
-        // 전임자는 이 메소드를 애초에 라이팅용으로 만들었었다.
-        // 그런데 후임자가 이렇게 리딩용 코드를 넣었다.
-
         // Toy obj = box.get(); // error
         // 안돌아갈 가능성이 있으므로 컴파일 에러가 발생된다.
-
     }
-
-    
-
 }

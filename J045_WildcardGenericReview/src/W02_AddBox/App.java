@@ -11,7 +11,7 @@ public class App {
 
         Exam.addBox(box1, box2, result);
 
-        System.out.println(result.get());
+        System.out.println(result.get()); // 50
 
     }
 }
