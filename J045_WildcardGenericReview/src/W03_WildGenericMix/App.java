@@ -9,9 +9,8 @@ public class App {
         BoxHandler.inBox(tBox, new Toy());
         BoxHandler.inBox(dBox, new Doll());
 
-        BoxHandler.checkBox(tBox);
-        BoxHandler.checkBox(dBox);
-
+        BoxHandler.checkBox(tBox); // This is a Toy
+        BoxHandler.checkBox(dBox); // This is a Doll
 
     }
 }

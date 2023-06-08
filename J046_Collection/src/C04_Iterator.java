@@ -18,13 +18,6 @@ public class C04_Iterator {
         // Iterator ////////////////////////////////////////////////////
 
         // 1. 반복자를 만든다.
-        // 반복자는 해당 자료구조에 iterator() 메소드를 호출하여 얻는다.
-        // 반복자의 타입 파라미터가 Integer여야 한다.
-        // 반복자는 막대기같은 것이다. 처음 생성되면 리스트 밖(맨앞)에서 막대기가 대기하고 있다.
-        // 반복자는 뒤로는 가지 않는다. 무조건 next.
-        // 반복자는 재활용할 수 없다. 순환이 끝났는데 또 순환이 필요하면 다시 받아와야 한다.
-        // 반복자가 뒤로 간다면? 한번 찍힌 요소가 또 찍히기 때문이다.
-        // 양방향 반복자(ListIterator)가 있기는 하다. 하지만 실무에서는 거의 사용하지 않는다. 쓰지 말자.
         Iterator<Integer> iter = list.iterator();
 
         // 2. 반복자를 이용해서 데이터를 가지고 온다. (전형적인 코드)
@@ -34,6 +27,7 @@ public class C04_Iterator {
 
         System.out.println("*** 반복자 1회 사용 완료 ***");
 
+        // 3. 필요하다면 다시 만들어서 가지고 온다.
         iter = list.iterator();
         while(iter.hasNext()) {            
             System.out.println(iter.next());
