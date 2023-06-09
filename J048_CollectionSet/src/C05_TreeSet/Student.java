@@ -1,6 +1,4 @@
-package C06_TreeSetSort;
-
-import java.util.Objects;
+package C05_TreeSet;
 
 public class Student implements Comparable<Student> {
     
@@ -79,6 +77,9 @@ public class Student implements Comparable<Student> {
             "}";
     }
 
+    // 6. clone()
+    // 필요 없을 듯..
+
     @Override
     public int compareTo(Student stu) {
 
@@ -102,70 +103,7 @@ public class Student implements Comparable<Student> {
         // }
 
         // 위의 if문을 이렇게 축약할 수 있다.
-        // return this.number - stu.number;
-
-
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-        
-        // 1. this, stu 둘다 일반학생
-        // this와 파라미터(stu)가 같아서 스왑이 필요 없는 경우 ==> 0 리턴
-        if ((this.staff.length() == 0) && (stu.staff.length() == 0)) {
-            return this.number - stu.number;
-        }
-        
-        // 2. this = 임원 / stu = 일반학생
-        // this가 앞으로 가는 경우이므로 ==> 음수 리턴
-        else if ((this.staff.length() > 0) && (stu.staff.length() == 0)) {
-            return -1;
-        }
-        
-        // 3. this = 일반학생 / stu = 임원
-        // stu가 앞으로 가는 경우이므로 ==> 양수 리턴
-        else if ((this.staff.length() == 0) && (stu.staff.length() > 0)) {
-            return 1;
-        }
-        
-        // 4. this, stu 둘다 임원
-        else {
-            
-            // 1) this = staff / stu = leader
-            // 파라미터(stu)가 앞으로 가는 경우이므로 ==> 양수 리턴
-            if ((this.staff.equals("staff")) && (stu.staff.equals("leader"))) {
-                return 1;
-            }
-            
-            // 2) this = leader / stu = staff
-            // this가 앞으로 가는 경우이므로 ==> 음수 리턴
-            else if ((this.staff.equals("leader")) && (stu.staff.equals("staff"))) {
-                return -1;
-            }
-
-            else { // (this.staff.equals("staff")) && (stu.staff.equals("staff"))
-                return this.number - stu.number;
-            }
-        }
-
-
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        // if ((false == staff.isEmpty()) && (true == stu.getStaff().isEmpty())) {
-        //     return -1; // 내가 앞으로 온다.
-        // }
-
-        // else if ((true == staff.isEmpty()) && (false == stu.getStaff().isEmpty())) {
-        //     return 1; // 파라미터가 앞으로 온다.
-        // }
-
-        // else if ((false == staff.isEmpty()) && (false == stu.getStaff().isEmpty())) {
-        //     return 0;
-        // }
-
-        // else {
-        //     return this.number - stu.getNumber();
-        // }
+        return this.number - stu.number;
     }
+
 }

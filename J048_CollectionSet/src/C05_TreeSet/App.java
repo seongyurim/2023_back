@@ -34,7 +34,7 @@ public class App {
             new Student(4, "김연두", "서울", ""),
             new Student(2, "김주황", "서울", "leader"),
             new Student(6, "김하늘", "서울", ""),
-            new Student(7, "김파랑", "서울", "staff"),
+            new Student(7, "김파랑", "서울", "staff")
         };
 
         Arrays.sort(ar);
