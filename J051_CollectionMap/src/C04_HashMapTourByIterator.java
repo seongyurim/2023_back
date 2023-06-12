@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class C04_HashMapTourIterator {
+public class C04_HashMapTourByIterator {
     public static void main(String[] args) {
         
         // 번호(int), 이름(String)으로 구성된 key-value가 있다고 치자.

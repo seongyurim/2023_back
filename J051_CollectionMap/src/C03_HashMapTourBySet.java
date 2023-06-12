@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Set;
 
-public class C03_HashMapTour {
+public class C03_HashMapTourBySet {
     public static void main(String[] args) {
 
         HashMap<String, String> user = new HashMap<>();

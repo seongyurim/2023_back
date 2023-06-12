@@ -18,12 +18,12 @@ public class C04_Deque {
         deque.push("레");
         deque.push("미");
         deque.push("파");
-        System.out.println(deque); // [도, 레, 미, 파]
+        System.out.println(deque);
 
         // 3. pop
         System.out.println(deque.peek()); // 파
         System.out.println(deque.pop()); // 파
-        System.out.println(deque); // [도, 레, 미]
+        System.out.println(deque);
 
     }
 }
