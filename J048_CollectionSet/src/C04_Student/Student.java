@@ -23,6 +23,13 @@ public class Student {
         this.staff = staff;
     }
 
+    public Student(int number, String name) {
+    this.number = number;
+    this.name = name;
+    this.address = "";
+    this.staff = "";
+    }
+
     // 2. Getter & Setter
     public int getNumber()     {return this.number;}
     public String getName()    {return this.name;}
@@ -53,10 +60,7 @@ public class Student {
     // 4. hashCode()
     @Override
     public int hashCode() {
-        return name.hashCode() +
-               address.hashCode() +
-               staff.hashCode()
-               % 5;
+        return name.hashCode() + number % 5;
     }
 
     // 5. toString()

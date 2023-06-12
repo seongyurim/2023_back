@@ -45,7 +45,7 @@ public class App {
 
         System.out.println("------- 2차 출력 시작: 중복 객체 추가 ---------------------------");
 
-        set.add(new Student(3, "김노랑", "강원", "")); // 중복 객체 추가 시도
+        set.add(new Student(3, "김노랑")); // 중복 객체 추가 시도
 
         System.out.printf("*총 %s명\n", set.size()); // 추가 실패. 총 10명
 
@@ -54,8 +54,5 @@ public class App {
         while(iter.hasNext()) {
             System.out.println(iter.next());
         }
-
-
-
     }
 }
