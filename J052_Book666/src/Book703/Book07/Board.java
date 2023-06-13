@@ -1,4 +1,4 @@
-package Book703.Book07;
+package Book07;
 
 public class Board {
     

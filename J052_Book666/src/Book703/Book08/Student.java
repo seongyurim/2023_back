@@ -1,4 +1,6 @@
-package Book703.Book08;
+package Book08;
+
+import java.util.Objects;
 
 public class Student {
     
@@ -29,6 +31,7 @@ public class Student {
 
     @Override
     public int hashCode() {
-        return studentNum;
+        return studentNum % 5; // 데이터의 수량을 대충 짐작할 수 있는 경우
+        // return Objects.hash(studentNum); // 짐작이 어려운 경우
     }
 }

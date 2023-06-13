@@ -1,5 +1,7 @@
 package Book10;
 
+import java.util.Objects;
+
 public class Student implements Comparable<Student> {
     
     public String id;
@@ -29,7 +31,7 @@ public class Student implements Comparable<Student> {
 
     @Override
     public int hashCode() {
-        return id.hashCode();
+        return Objects.hash(id);
     }
 
     @Override

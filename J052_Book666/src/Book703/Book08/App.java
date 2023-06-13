@@ -1,4 +1,4 @@
-package Book703.Book08;
+package Book08;
 
 import java.util.*;
 
@@ -9,12 +9,12 @@ public class App {
 
         set.add(new Student(1, "김노랑"));
         set.add(new Student(2, "이파랑"));
-        set.add(new Student(1, "김노랑")); // 저장되지 않아야 함
+        set.add(new Student(1, "박연두")); // 저장되지 않아야 함
 
         System.out.println("저장된 객체 수: " + set.size());
 
         for (Student stu : set) {
-            System.out.println(stu.studentNum + "번 " + stu.name);
+            System.out.println(stu.studentNum + ":" + stu.name);
         }
     }
 }
