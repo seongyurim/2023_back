@@ -8,8 +8,8 @@ public class App {
         // 방법1
         // 컴파일러가 주변 정황 추론 + 람다식 사용 = 임시객체를 만들어낸다.
         Person p1 = new Person();
-        Calcuable cal1 = (a, b) -> {return Computer.calcAdd(a, b);}; // "아 우항에서는 double calc 메소드를 구현하고 있구나"
-        p1.action(cal1);
+        Calcuable cal1 = (a, b) -> Computer.calcAdd(a, b); // "아 우항에서는 double calc 메소드를 구현하고 있구나"
+        p1.action(cal1); // 12.2
 
         // 방법2
         // Computer 클래스에 calcAdd 메소드를 네가 한번 봐봐.
